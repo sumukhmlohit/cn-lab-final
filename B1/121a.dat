@@ -1,0 +1,11 @@
+left_boundary = 2.000000
+lower_boundary = 7.200000
+sann 0
+next
+shape
+1  1815840
+5  1817226
+10  1812373
+20  1813760
+50  1808213
+sann 1
