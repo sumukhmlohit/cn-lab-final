@@ -22,19 +22,19 @@ $ns duplex-link $n0 $n1 1Mb 10ms DropTail
 $ns duplex-link $n1 $n2 12Kb 10ms DropTail
 #setting queue size of the link
 $ns queue-limit $n1 $n2 5
-#creating a udp connection in network simulator
-set udp0 [new Agent/TCP]
-$ns attach-agent $n0 $udp0
-#set up CBR over udp
-set cbr0 [new Application/FTP]
-$cbr0 set packetSize_ 500
-$cbr0 set interval_ 0.005
-$cbr0 attach-agent $udp0
+#creating a udp/tcp connection in network simulator
+set tcp0 [new Agent/TCP]
+$ns attach-agent $n0 $tcp0
+#set up CBR over udp/ftp over tcp
+set ftp0 [new Application/FTP]
+$ftp0 set packetSize_ 500
+$ftp0 set interval_ 0.005
+$ftp0 attach-agent $tcp0
 set sink [new Agent/TCPSink]
 $ns attach-agent $n2 $sink
-$ns connect $udp0 $sink
+$ns connect $tcp0 $sink
 #scheduling events
-$ns at 0.2 "$cbr0 start"
-$ns at 4.5 "$cbr0 stop"
+$ns at 0.2 "$ftp0 start"
+$ns at 4.5 "$ftp0 stop"
 $ns at 5.0 "finish"
 $ns run 
