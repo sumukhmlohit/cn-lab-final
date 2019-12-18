@@ -22,12 +22,12 @@ set n4 [$ns node]
 set n5 [$ns node]
 set n6 [$ns node]
 
-$ns duplex-link $n1 $n0 1Kb 12ms DropTail
-$ns duplex-link $n2 $n0 0.0001Kb 10ms DropTail
-$ns duplex-link $n3 $n0 1Kb 10ms DropTail
-$ns duplex-link $n4 $n0 1Kb 10ms DropTail
-$ns duplex-link $n5 $n0 1Kb 10ms DropTail
-$ns duplex-link $n6 $n0 1Kb 11ms DropTail
+$ns duplex-link $n1 $n0 1Mb 12ms DropTail
+$ns duplex-link $n2 $n0 1Mb 10ms DropTail
+$ns duplex-link $n3 $n0 1Mb 10ms DropTail
+$ns duplex-link $n4 $n0 1Mb 10ms DropTail
+$ns duplex-link $n5 $n0 1Mb 10ms DropTail
+$ns duplex-link $n6 $n0 1Mb 11ms DropTail
 
 Agent/Ping instproc recv {from rtt} {
 $self instvar node_
