@@ -46,7 +46,7 @@ $ns simplex-link $n2 $n3 2Mb 100ms DropTail
 $ns simplex-link $n3 $n2 2Mb 100ms DropTail
 
 # Create a LAN
-set lan [$ns newLan "$n3 $n4 $n5" 0.5Mb 40ms LL Queue/DropTail MAC/Csma/Cd Channel]
+set lan [$ns newLan "$n3 $n4 $n5" 0.5Mb 40ms LL Queue/DropTail MAC/802_3 Channel]
 
 #Give node position
 $ns duplex-link-op $n0 $n2 orient right-down
